@@ -19,6 +19,7 @@ http.get(url, function(request) {
 
 // Solution 2 (using bl module)
 var http = require('http');
+// Buffer List module: https://github.com/rvagg/bl
 var bl = require('bl');
     
 http.get(process.argv[2], function (response) {
