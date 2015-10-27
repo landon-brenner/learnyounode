@@ -1,7 +1,8 @@
-// Solution 1
-/*
+// Both solutions require the http module
 var http = require('http');
 
+// Solution 1
+/*
 var url = process.argv[2];
 
 http.get(url, function(request) {
@@ -18,18 +19,20 @@ http.get(url, function(request) {
 */
 
 // Solution 2 (using bl module)
-var http = require('http');
+// /*
+
 // Buffer List module: https://github.com/rvagg/bl
 var bl = require('bl');
-    
+
 http.get(process.argv[2], function (response) {
-	response.pipe(bl(function (err, data) {
-		if (err) {
-			return console.error(err)
-		} else {
-			data = data.toString()
-			console.log(data.length)
-			console.log(data)
-		}
-	}));  
-})
+  response.pipe(bl(function (err, data) {
+    if (err) {
+      return console.error(err)
+    };
+    data = data.toString();
+    console.log(data.length);
+    console.log(data);
+  }));  
+});
+
+// */
